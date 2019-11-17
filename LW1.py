@@ -1,6 +1,8 @@
 # coding=utf-8
 import numpy as np
+import gauss
 
+# https://github.com/aliot2010/-Python_Gauss
 # https://pyprog.pro/io_functions/savetxt.html
 # https://pyprog.pro/array_creation/loadtxt.html
 # https://www.easycoding.org/2017/01/23/schityvaem-chislovye-dannye-iz-fajla-na-python.html
@@ -29,14 +31,12 @@ matrixA = np.loadtxt(fName,
 print('Матрица A: ')
 print(matrixA)
 
-
 # Чтение матрицы коэффициентов из файла
 matrixB = np.loadtxt(fName,
                      skiprows=2,
                      usecols=matrixSize)
 print('Матрица B: ')
 print(matrixB)
-
 
 # Готовое решение СЛАУ
 x = np.linalg.solve(matrixA, matrixB)
@@ -53,6 +53,13 @@ invA = np.linalg.inv(matrixA)
 print('Обратная матрица: ')
 print(invA)
 
-
 # Тестовая запись файла.
-np.savetxt('test_output.txt', matrixA, fmt = '%0.2f')
+np.savetxt('test_output.txt', matrixA, fmt='%0.2f')
+
+
+matrixAB = np.loadtxt(fName,
+                      skiprows=2,)
+
+b = gauss.gaussFunc(matrixAB)
+print("Ответ:")
+print(b)
