@@ -1,5 +1,6 @@
 # coding=utf-8
 import numpy as np
+
 import gauss
 
 # https://github.com/aliot2010/-Python_Gauss
@@ -20,46 +21,53 @@ taskType = 1
 matrixSize = 0
 
 # Чтение типа задачи и размера матрицы.
-with open(fName) as inFile:
-    taskType = int(inFile.readline())
-    matrixSize = int(inFile.readline())
+# with open(fName) as inFile:
+#    taskType = int(inFile.readline())
+#    matrixSize = int(inFile.readline())
 
 # Чтение матрицы коэффициентов из файла
-matrixA = np.loadtxt(fName,
-                     skiprows=2,
-                     usecols=(range(matrixSize)))
-print('Матрица A: ')
-print(matrixA)
+# matrixA = np.loadtxt(fName,
+#                     skiprows=2,
+#                     usecols=(range(matrixSize)))
+# print('Матрица A: ')
+# print(matrixA)
 
 # Чтение матрицы коэффициентов из файла
-matrixB = np.loadtxt(fName,
-                     skiprows=2,
-                     usecols=matrixSize)
-print('Матрица B: ')
-print(matrixB)
+# matrixB = np.loadtxt(fName,
+#                     skiprows=2,
+#                     usecols=matrixSize)
+# print('Матрица B: ')
+#print(matrixB)
 
 # Готовое решение СЛАУ
-x = np.linalg.solve(matrixA, matrixB)
-print('Решение СЛАУ: ')
-print(x)
+# x = np.linalg.solve(matrixA, matrixB)
+# print('Решение СЛАУ: ')
+#print(x)
 
 # Готовое решение определителя матрицы.
-detA = np.linalg.det(matrixA)
-print('Определитель матрицы: ')
-print(detA)
+# detA = np.linalg.det(matrixA)
+# print('Определитель матрицы: ')
+# print(detA)
 
-# Готовое решение определителя матрицы.
-invA = np.linalg.inv(matrixA)
-print('Обратная матрица: ')
-print(invA)
+# Готовое решение обратной матрицы.
+# invA = np.linalg.inv(matrixA)
+# print('Обратная матрица: ')
+#print(invA)
 
 # Тестовая запись файла.
-np.savetxt('test_output.txt', matrixA, fmt='%0.2f')
+#np.savetxt('test_output.txt', matrixA, fmt='%0.2f')
 
 
 matrixAB = np.loadtxt(fName,
-                      skiprows=2,)
+                      skiprows=2, )
 
-b = gauss.gaussFunc(matrixAB)
+matrixAnother = np.array([[2., 1, 1, 2],
+                          [1, -1, 0, -2],
+                          [3, -1, 2, 2]])
+print("_____________________________________________________")
+print("_____________________________________________________")
+
+b = gauss.gaussFunc(matrixAnother)
 print("Ответ:")
 print(b)
+
