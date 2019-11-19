@@ -2,7 +2,10 @@
 import numpy as np
 
 import gauss
+import gaussL
 
+# https://prog-cpp.ru/gauss/
+# http://portal.tpu.ru/SHARED/k/KONVAL/Sites/Russian_sites/2/05.htm
 # https://github.com/aliot2010/-Python_Gauss
 # https://pyprog.pro/io_functions/savetxt.html
 # https://pyprog.pro/array_creation/loadtxt.html
@@ -18,7 +21,7 @@ fName = 'input.txt'
 taskType = 1
 
 # Размер матрицы.
-matrixSize = 0
+matrixSize = 3
 
 # Чтение типа задачи и размера матрицы.
 # with open(fName) as inFile:
@@ -61,13 +64,17 @@ matrixSize = 0
 matrixAB = np.loadtxt(fName,
                       skiprows=2, )
 
-matrixAnother = np.array([[2., 1, 1, 2],
-                          [1, -1, 0, -2],
+matrixAnother = np.array([[0., 1, 1, 2],
+                          [5, -1, 0, -2],
                           [3, -1, 2, 2]])
+
+
+
 print("_____________________________________________________")
 print("_____________________________________________________")
 
-b = gauss.gaussFunc(matrixAnother)
-print("Ответ:")
-print(b)
+#b = gauss.gaussFunc(matrixAnother)
+#print("Ответ:")
+#print(b)
 
+result = gaussL.solve(matrixAnother, matrixSize)
