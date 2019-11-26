@@ -62,9 +62,10 @@ def solve(in_matrix, matrix_size):
     print("Отсюда дебаг___________________")
 
     for rc in range(matrix_size):
+        print("RC = " + str(rc))
         # Перемещаем строку с максимальным ведущим элементом в начало.
-
-        row_max = int(np.argmax(matrix[rc:, 0]))
+        # Индекс найденной строки сохраняется относительно матрицы, а не текущей строки
+        row_max = (np.argmax(matrix[rc:, rc])) + rc
         if row_max != 0:
             # Обмен строками
             matrix[[rc, row_max], :] = matrix[[row_max, rc], :]
@@ -77,7 +78,6 @@ def solve(in_matrix, matrix_size):
 
         # ПРОХОД СТУПЕНЬКАМИ
         # print(matrix[rc:, rc:])
-        print("ITER ++")
 
 
     # for col in range(matrix_size):
